@@ -35,11 +35,11 @@ const data = [
 net.train(data);
 
 $(function(){
-    $("ul").slideToggle(0);
+    $("ul.big").slideToggle(0);
 })
 
 $("#st").click(function(){
-    $("ul").slideToggle(1000);
+    $("ul.big").slideToggle(1000);
     const st = document.getElementById("st");
     if(st.innerHTML == "Inappropriate face ratio explanation 🔼"){
         st.innerHTML = "Inappropriate face ratio explanation 🔽";
