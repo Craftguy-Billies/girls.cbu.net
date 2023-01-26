@@ -2,7 +2,7 @@
 
 //Copyright by billiez, 2023. All rights reserved.
 
-const net = new brain.recurrent.LSTM();
+const net = new brain.recurrent.RNN();
 
 $("#prediction-index").css("display","none");
 
