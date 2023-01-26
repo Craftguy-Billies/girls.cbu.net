@@ -1,4 +1,5 @@
 //Javascript for Training Neural Network Model for billiez Girls Type.
+
 //Copyright by billiez, 2023. All rights reserved
 
 const net = new brain.NeuralNetwork();
@@ -26,7 +27,8 @@ const data = [
     {"input":[4,0,2,2,0,0],"output":["0"]},
     {"input":[3,0,0,2.6666666666666665,0,0],"output":["1"]},
     {"input":[3,0,0,1.3333333333333333,0,0],"output":["0"]},
-    {"input":[3,0,0,2,0,0],"output":["0"]}
+    {"input":[3,0,0,2,0,0],"output":["0"]},
+    {"input":[0,4,0,4,4,0],"output":["0"]}
 ];
 
 net.train(data);
