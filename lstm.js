@@ -33,7 +33,12 @@ const data = [
     {"input":[4,0,1,2.6666666666666665,0,0],"output":["1"]}
 ];
 
-net.train(data);
+const config = {
+    iterations: 100,
+    log: true,
+    };
+
+    net.train(data,config);
 
 $(function(){
     $("ul.big").slideToggle(0);
