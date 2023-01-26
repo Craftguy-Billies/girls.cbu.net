@@ -31,11 +31,12 @@ const data = [
     {"input":[0,4,0,4,4,0],"output":["0"]},
     {"input":[4,0,0,4,4,3],"output":["0"]},
     {"input":[4,0,1,2.6666666666666665,0,0],"output":["1"]},
-    {"input":[4,1,0,3.3333333333333335,0,0],"output":["1"]}
+    {"input":[4,1,0,3.3333333333333335,0,0],"output":["1"]},
+    {"input":[3,1,0,4,1,1],"output":["1"]}
 ];
 
 const config = {
-    iterations: 100,
+    iterations: 1000,
     log: true,
     };
 
