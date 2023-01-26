@@ -1,4 +1,5 @@
 //Javascript for Training Neural Network Model for billiez Girls Type.
+
 //Copyright by billiez, 2023. All rights reserved
 
 const net = new brain.NeuralNetwork();
