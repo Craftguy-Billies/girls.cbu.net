@@ -45,10 +45,6 @@
     await printMessage('正在思考，请等待......');
 
     var url = "https://api.openai.com/v1/chat/completions";
-    var headers = {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer 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" // Replace with your actual API key
-    };
     var data = JSON.stringify({
       "messages": [
         {"role": "user", "content": prompt}
@@ -63,7 +59,10 @@
     try {
       var response = await fetch(url, {
         method: "POST",
-        headers: headers,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer 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" // Replace with your actual API key
+        },
         body: data
       });
 
@@ -82,6 +81,7 @@
     }
   }
 </script>
+
 
   </head>
 	 
