@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChatGPT Website</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h1>ChatGPT Website</h1>
+  <div class="card mt-4">
+    <div class="card-body" id="chat-container">
+      <div class="form-group">
+        <label for="message">User Message:</label>
+        <input type="text" class="form-control" id="message" placeholder="Type your message here">
+      </div>
+      <button class="btn btn-primary" id="send-btn">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#send-btn").click(function(){
+    var message = $("#message").val();
+    sendMessage(message);
+  });
+
+  function sendMessage(message) {
+    if (message.trim() !== "") {
+      var requestData = {
+        message: message
+      };
+
+      $.ajax({
+        url: 'https://api.openai.com/v1/engines/davinci-codex/completions',
+        type: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer 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' // Replace with your actual API key
+        },
+        data: JSON.stringify(requestData),
+        success: function(response) {
+          var reply = response.choices[0].text.trim();
+          appendMessage(message, 'user');
+          appendMessage(reply, 'chatbot');
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    }
+  }
+
+  function appendMessage(message, sender) {
+    var messageHTML = "<div class='alert alert-secondary'>" + message + "</div>";
+    if (sender === 'user') {
+      $("#chat-container").append("<div class='text-right'>" + messageHTML + "</div>");
+    } else {
+      $("#chat-container").append("<div>" + messageHTML + "</div>");
+    }
+    $("#message").val("");
+  }
+});
+</script>
+
+</body>
+</html>
